@@ -36,7 +36,7 @@
         <div class="box__description">
             <div class="box__description-container">
                 <div class="box__description-title">Whoops!</div>
-                <div class="box__description-text">Acho que o que procura não pode ser encontrado, não nessa dimensão.
+                <div class="box__description-text">Acho que o que você está procurando não pode ser encontrado, ao menos não nessa dimensão.
                 </div>
             </div>
 
@@ -46,28 +46,25 @@
 
     </div>
     <script>
-        window.addEventListener('mousemove', e => {
-
-            var pageX = $(document).width();
-            var pageY = $(document).height();
-            var mouseY = 0;
-            var mouseX = 0;
-
-            $(document).mousemove(function (event) {
-                //verticalAxis
-                mouseY = event.pageY;
-                yAxis = (pageY / 2 - mouseY) / pageY * 300;
-                //horizontalAxis
-                mouseX = event.pageX / -pageX;
-                xAxis = -mouseX * 100 - 100;
-
-                $('.box__ghost-eyes').css({ 'transform': 'translate(' + xAxis + '%,-' + yAxis + '%)' });
-
-                console.log('X: ' + xAxis);
-
-            });
-        })
-    </script>
+        window.addEventListener("mousemove", e => {
+          var pageX = window.screen.width;
+          var pageY = window.screen.height;
+          var mouseY = 0;
+          var mouseX = 0;
+  
+          mouseY = event.pageY;
+          yAxis = ((pageY / 2 - mouseY) / pageY) * 300;
+          //horizontalAxis
+          mouseX = event.pageX / -pageX;
+          xAxis = -mouseX * 100 - 100;
+  
+          var boneco = document.querySelector(
+            "body > div > div.box__ghost > div.box__ghost-container > div.box__ghost-eyes"
+          );
+  
+          boneco.style.transform = "translate(" + xAxis + "%,-" + yAxis + "%)";
+        });
+      </script>
 
 </body>
 

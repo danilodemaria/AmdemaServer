@@ -15,9 +15,7 @@ app.get('/src/styles/styles.css', function(req, res) {
   res.sendFile(__dirname + "/" + "style.css");
 });
 
-app.get('*', function(req, res){
-  res.sendFile(path.join(__dirname+'/html/error.html'));
-});
+
 
 app.get('/', function (req, res) {
   res.send('SERVER ONLINE');
@@ -25,6 +23,10 @@ app.get('/', function (req, res) {
 
 app.get('/login',function(req,res){
   res.sendFile(path.join(__dirname+'/html/login.html'));
+});
+
+app.get('*',function (req, res) {
+  res.sendFile(path.join(__dirname+'/html/error.html'));
 });
 
 app.listen(process.env.PORT || 3000, function () {

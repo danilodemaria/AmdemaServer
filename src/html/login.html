@@ -20,9 +20,10 @@
 
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 
-<body>
+<body onload="script()">
 	<div class="container">
 		<div class="d-flex justify-content-center h-100">
 			<div class="card">
@@ -53,10 +54,7 @@
 							<input type="checkbox">Lembrar Dados
 						</div>
 						<div class="form-group">
-							<input type="submit" value="Acessar" class="btn float-right login_btn">
-						</div>
-						<div>
-							<button id="teste" onclick="myFunction()">Click me</button>
+							<input type="submit" id="idButton" value="Acessar" class="btn float-right login_btn">
 						</div>
 					</form>
 				</div>
@@ -72,9 +70,9 @@
 		</div>
 	</div>
 	<script>
-		function myFunction() {
-			document.getElementById("demo").style.color = "red";
-		}
+		$("#idButton").click(function () {
+			alert("Ops. ainda não foi criado a função de login. Culpa do Danilo.");
+		});
 	</script>
 </body>
 
