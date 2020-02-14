@@ -18,7 +18,7 @@ app.get('/src/styles/styles.css', function(req, res) {
 
 
 app.get('/', function (req, res) {
-  res.send('SERVER ONLINE');
+  res.sendFile(path.join(__dirname+'/html/index.html'));
 });
 
 app.get('/login',function(req,res){
