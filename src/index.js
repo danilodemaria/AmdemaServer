@@ -2,14 +2,18 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const app = express();
+app.use(express.static(__dirname));
 
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(express.static('public'));
-app.use(express.static('files'));
-app.use('/static', express.static(path.join(__dirname, 'public')))
+
+app.use(express.static("public"));
+
+app.get('/src/styles/styles.css', function(req, res) {
+  res.sendFile(__dirname + "/" + "style.css");
+});
 
 
 app.get('/', function (req, res) {
